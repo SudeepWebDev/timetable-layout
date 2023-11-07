@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Atma Ram Sanatan Dharma College</title>
+      <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+      <script crossorigin="anonymous" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="/custom.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+      <style>
+         * {
+         user-select: none;
+         }
+         .custom-logo {
+         background: linear-gradient(to bottom right, rgb(10, 20, 110), #0071EB);
+         background-clip: text;
+         -webkit-background-clip: text;
+         color: transparent;
+         font-size: 24px;
+         font-weight: bold;
+         cursor: pointer;
+         margin-left: 10px;
+         }
+         .hover-underline {
+         position: relative;
+         text-decoration: none;
+         color: #0071EB;
+         /* Default text color */
+         transition: color 0.3s, background-image 0.3s;
+         /* Add a smooth transition effect */
+         }
+         .hover-underline::before {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 3px;
+         background-image: linear-gradient(to right, #0071EB, #0071EB);
+         transform: scaleX(0);
+         transform-origin: bottom right;
+         transition: transform 0.3s;
+         }
+         /* .hover-underline:hover {
+         color: #fff; 
+         background-image: none;
+         } */
+         .hover-underline:hover::before {
+         transform: scaleX(1);
+         transform-origin: bottom left;
+         }
+         .bg-light-gray {
+         background-color: #f7f7f7;
+         }
+         .table-bordered thead td,
+         .table-bordered thead th {
+         border-bottom-width: 2px;
+         }
+         .table thead th {
+         vertical-align: bottom;
+         border-bottom: 2px solid #000000;
+         }
+         .table-bordered td,
+         .table-bordered th {
+         border: 1px solid #000000;
+         }
+         .bg-sky.box-shadow {
+         box-shadow: 0px 5px 0px 0px #00a2a7
+         }
+         .bg-orange.box-shadow {
+         box-shadow: 0px 5px 0px 0px #af4305
+         }
+         .bg-green.box-shadow {
+         box-shadow: 0px 5px 0px 0px #4ca520
+         }
+         .bg-yellow.box-shadow {
+         box-shadow: 0px 5px 0px 0px #dcbf02
+         }
+         .bg-pink.box-shadow {
+         box-shadow: 0px 5px 0px 0px #e82d8b
+         }
+         .bg-purple.box-shadow {
+         box-shadow: 0px 5px 0px 0px #8343e8
+         }
+         .bg-lightred.box-shadow {
+         box-shadow: 0px 5px 0px 0px #d84213
+         }
+         .bg-sky {
+         background-color: #02c2c7
+         }
+         .bg-orange {
+         background-color: #e95601
+         }
+         .bg-green {
+         background-color: #5bbd2a
+         }
+         .bg-yellow {
+         background-color: #f0d001
+         }
+         .bg-pink {
+         background-color: #ff48a4
+         }
+         .bg-purple {
+         background-color: #9d60ff
+         }
+         .bg-lightred {
+         background-color: #ff5722
+         }
+         .padding-15px-lr {
+         padding-left: 15px;
+         padding-right: 15px;
+         }
+         .padding-5px-tb {
+         padding-top: 5px;
+         padding-bottom: 5px;
+         }
+         .margin-10px-bottom {
+         margin-bottom: 10px;
+         }
+         .border-radius-5 {
+         border-radius: 5px;
+         }
+         .margin-10px-top {
+         margin-top: 10px;
+         }
+         .font-size14 {
+         font-size: 14px;
+         }
+         .text-light-gray {
+         color: #d6d5d5;
+         }
+         .font-size13 {
+         font-size: 13px;
+         }
+         .table-bordered td,
+         .table-bordered th {
+         border: 1px solid #000000;
+         }
+         .table td,
+         .table th {
+         padding: .75rem;
+         vertical-align: middle;
+         border-top: 1px solid #000000;
+         white-space: nowrap;    
+         }
+         table tbody td:first-child, table thead th:first-child {
+         position: sticky;
+         left: 0;
+         background-color: #fff; 
+         z-index: 2;
+         }
+         .large-screen-element {
+         display: block;
+         }
+         @media screen and (max-width: 600px) {
+         .large-screen-element {
+         display: none; 
+         }
+         }
+         :root {
+         --p-bg-color-1: rgb(10, 20, 110);
+         --p-bg-color-2: #0071EB;
+         --white: white;
+         --blue: blue;
+         --black: black;
+         --cornflowerblue: cornflowerblue;
+         --warm-yellow: rgb(249, 202, 36);
+         --vibrant-orange: rgb(240, 147, 43);
+         }
+         thead,
+         .align-middle {
+         background: var(--white) !important;
+         z-index: 3;
+         }
+         caption {
+         caption-side: top;
+         }
+         .nav-bottom-header {
+         display: flex;
+         flex-direction: column;
+         margin: 40px;
+         text-align: center;
+         border-radius: 10px;
+         background: linear-gradient(to bottom right, var(--p-bg-color-1), var(--p-bg-color-2));
+         color: var(--white);
+         }
+         .study-text,
+         .search-appearance,
+         .tag-icons {
+         margin-bottom: 20px;
+         }
+         .nav-bottom-header div.study-text {
+         margin: 30px;
+         }
+         .hover-tag:hover {
+         background-color: rgb(245, 245, 245);
+         color: rgb(10, 20, 110);
+         }
+         .click-tag {
+         background-color: white;
+         color: rgb(10, 20, 110);
+         }
+         .cursor-pointer {
+         cursor: pointer;
+         }
+         @media (max-width: 768px) {
+         .custom-logo {
+         margin-left: 10px;
+         }
+         .nav-bottom-header {
+         margin: 40px 10px;
+         }
+         h1 {
+         font-size: 20px;
+         }
+         h2 {
+         font-size: 18px;
+         }
+         #selectOption {
+         overflow-x: auto;
+         white-space: nowrap;
+         justify-content: flex-start !important;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <!-- Include header content here -->
+         <nav class="navbar navbar-expand-lg navbar-light bg-white"
+            style="    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);">
+            <div class="container">
+               <!-- Logo -->
+               <a class="navbar-brand" href="#">
+                  <div class="d-flex align-items-center">
+                     <img src="https://sudeepwebdev.github.io/arsd-tbi/logo.png" alt="Logo" width="50">
+                     <span class="d-none d-lg-block ml-2 custom-logo">Atma Ram Sanatan Dharma College</span>
+                     <span class="d-lg-none ml-2 custom-logo">ARSD College</span>
+                  </div>
+               </a>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <div class="container mt-3">
+            <div id="alert" class="alert alert-danger d-flex justify-content-center " style="display: none !important;">
+               <p id="alertMessage" style="margin-bottom: 0;"></p>
+            </div>
+         </div>
+         <div class="nav-bottom-header">
+            <div class="study-text">
+               <div class="row justify-content-center">
+                  <div class="col-md-6">
+                     <form method="post">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="pshdlplcpCa4JcXGalLhz2JlRzPmbY9TMRd6Eciz7bBKpPVvmEsorOOWrDnELMau">
+                        <div class="d-flex justify-content-center cursor-pointer" id="selectedvalue">
+                        </div>
+                        <div class="d-flex justify-content-center cursor-pointer" id="selectOption">
+                           <span class="padding-15px-lr  padding-5px-tb border hover-tag flex-grow-1 "
+                              style="font-weight: 600;" id="faculty-opt">Faculty</span>
+                           <span class="padding-15px-lr padding-5px-tb border hover-tag flex-grow-1 "
+                              style="font-weight: 600;" id="course-opt">Course</span>
+                           <span class="padding-15px-lr padding-5px-tb border hover-tag flex-grow-1 "
+                              style="font-weight: 600;" id="room-opt">Room</span>
+                           <span class="padding-15px-lr padding-5px-tb border hover-tag " style="font-weight: 600;"
+                              id="ge-opt">GE</span>
+                           <span class="padding-15px-lr padding-5px-tb border hover-tag " style="font-weight: 600;"
+                              id="sec-opt">SEC</span>
+                           <span class="padding-15px-lr padding-5px-tb border hover-tag " style="font-weight: 600;"
+                              id="vac-opt">VAC</span>
+                        </div>
+                        <!-- Select Course -->
+                        <div id="courseGroup" class="mt-3" style="display: none;">
+                           <label for="course" class="form-label">Select Course:</label>
+                           <select class="form-select" id="course" name=""
+                              aria-label="Select Course">
+                              <option selected disabled>Select Course</option>
+                           </select>
+                           <label for="section" class="form-label">Select Section:</label>
+                           <select class="form-select" id="section" name=""
+                              aria-label="Select section">
+                              <option selected disabled>Select section</option>
+                           </select>
+                           <label for="semester" class="form-label">Select Semester:</label>
+                           <select class="form-select" id="semester" name=""
+                              aria-label="Select Semester">
+                              <option selected disabled>Select semester</option>
+                           </select>
+                        </div>
+                        <!-- Select Faculty -->
+                        <div id="facultyGroup" class="mt-3 form-group" style="display: none;">
+                        </div>
+                        <!-- Select Room -->
+                        <div id="roomGroup" class="form-group mt-3" style="display: none;">
+                        </div>
+                        <!-- Select GE/VAC/SEC paper -->
+                        <div id="geGroup" class="form-group mt-3">
+                        </div>
+                        <div id="secGroup" class="form-group mt-3">
+                        </div>
+                        <div id="vacGroup" class="form-group mt-3">
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary mt-3 text-white"
+                           id="submit-tt-btn">Submit</button>
+                        <button type="button" class="btn btn-primary mt-3" style="display: none;" id="reselect-tt-btn">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                     </form>
+                     <script></script>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+         <div class="container mt-4">
+            <div class="container" id="tt-container">
+               <div class="d-flex align-items-center">
+                  <button type="button" class="btn btn-outline-primary mt-3 d-flex" id="download-tt-btn"><i
+                     class="bi bi-box-arrow-down "></i><span class="large-screen-element"> &nbsp; Download</span>
+                  </button>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  <div class="form-check form-switch mt-3 d-flex">
+                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                     &nbsp;
+                     <label class="form-check-label text-dark-gray" for="flexSwitchCheckChecked">Toggle Period</label>
+                  </div>
+               </div>
+               <div class="table-responsive mt-4">
+                  <table class="table table-bordered text-center" id="timetable-table">
+                     <caption></caption>
+                     <thead class="font-size14">
+                        <tr id="period-row">
+                           <th class="text-uppercase" style="z-index: 30;">Period</th>
+                           <th class="text-uppercase">I</th>
+                           <th class="text-uppercase">II</th>
+                           <th class="text-uppercase">III</th>
+                           <th class="text-uppercase">IV</th>
+                           <th class="text-uppercase">V</th>
+                           <th class="text-uppercase">VI</th>
+                           <th class="text-uppercase">VII</th>
+                           <th class="text-uppercase">VIII</th>
+                           <th class="text-uppercase">IX</th>
+                        </tr>
+                        <tr>
+                           <th class="text-uppercase">Day \ Time</th>
+                           <th class="text-uppercase">08:30</th>
+                           <th class="text-uppercase">09:30</th>
+                           <th class="text-uppercase">10:30</th>
+                           <th class="text-uppercase">11:30</th>
+                           <th class="text-uppercase">12:30</th>
+                           <th class="text-uppercase">01:30</th>
+                           <th class="text-uppercase">02:30</th>
+                           <th class="text-uppercase">03:30</th>
+                           <th class="text-uppercase">04:30</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td class="align-middle">Monday</td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13 sub-cell">Break
+                              </span>
+                           </td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13 sub-cell">Break
+                              </span>
+                           </td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13">DIFFERENTIAL EQUATIONS (B.SC. (PROG.)
+                              </span>
+                              <div class="margin-10px-top font-size14 border-bottom lectroom-cell">
+                                 Theory || T-7
+                              </div>
+                              <div class="font-size13 ">B.SC. PHYSICAL SC. (ELECTRONICS)</div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                           </td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13">DIFFERENTIAL EQUATIONS (B.SC. (PROG.)
+                              </span>
+                              <div class="margin-10px-top font-size14 border-bottom lectroom-cell">
+                                 Theory || T-7
+                              </div>
+                              <div class="font-size13 ">B.SC. PHYSICAL SC. (ELECTRONICS)</div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="align-middle">Tuesday</td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="align-middle">Wednesday</td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13 sub-cell">Break
+                              </span>
+                           </td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13 sub-cell">Break
+                              </span>
+                           </td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13">DIFFERENTIAL EQUATIONS (B.SC. (PROG.)
+                              </span>
+                              <div class="margin-10px-top font-size14 border-bottom lectroom-cell">
+                                 Theory || T-7
+                              </div>
+                              <div class="font-size13 ">B.SC. PHYSICAL SC. (ELECTRONICS)</div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                           </td>
+                           <td style="height: 100px;">
+                              <span
+                                 class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size14 xs-font-size13">DIFFERENTIAL EQUATIONS (B.SC. (PROG.)
+                              </span>
+                              <div class="margin-10px-top font-size14 border-bottom lectroom-cell">
+                                 Theory || T-7
+                              </div>
+                              <div class="font-size13 ">B.SC. PHYSICAL SC. (ELECTRONICS)</div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                              <div class="font-size13 "></div>
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="align-middle">Thursday</td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="align-middle">Friday</td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="align-middle">Saturday</td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                           <td style="height: 100px;">
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer>
+         <!-- Include footer content here -->
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+         class ScrollableElement {
+         constructor(selector, options = {}) {
+         this.element = document.querySelector(selector);
+         this.scrollSpeed = options.scrollSpeed || 50;
+         this.scrollDirection = options.scrollDirection || 1;
+         this.attachScrollListener();
+         }
+         
+         attachScrollListener() {
+         this.element.addEventListener('wheel', (event) => {
+         const isAtRightEnd = this.element.scrollLeft + this.element.clientWidth >= this.element.scrollWidth;
+         const isAtLeftEnd = this.element.scrollLeft === 0;
+         
+         if (isAtRightEnd && event.deltaY > 0) {
+         window.scrollBy(0, this.scrollSpeed * this.scrollDirection);
+         } else if (isAtLeftEnd && event.deltaY < 0) {
+         window.scrollBy(0, -this.scrollSpeed * this.scrollDirection);
+         } else {
+         const scrollDirection = event.deltaY > 0 ? this.scrollDirection : -this.scrollDirection;
+         this.element.scrollLeft += this.scrollSpeed * scrollDirection;
+         }
+         
+         event.preventDefault();
+         });
+         }
+         }
+         
+         const tableScrollable = new ScrollableElement('.table-responsive');
+         
+         $("#flexSwitchCheckChecked").on("change", function () {
+         $("#period-row").toggle(this.checked);
+         });
+         const currentPath1 = window.location.pathname;
+         $("#semesterGroup, #courseGroup, #facultyGroup, #roomGroup, #geGroup, #secGroup, #vacGroup").hide();
+         $("#courseGroup").show();
+         $("#course-opt").addClass('click-tag')
+         if (currentPath1 != "/timetable/") {
+         $("#courseGroup").hide();
+         }
+         
+         $("#course-opt").on("click", function () {
+         $("#courseGroup").show();
+         $("#facultyGroup, #geGroup, #roomGroup,#secGroup,#vacGroup").hide();
+         $("#course-opt").addClass('click-tag');
+         $("#faculty-opt, #ge-opt,#sec-opt,#vac-opt, #room-opt").removeClass('click-tag');
+         });
+         $("#faculty-opt").on("click", function () {
+         $("#geGroup, #roomGroup, #courseGroup,#secGroup,#vacGroup").hide();
+         $("#facultyGroup").show();
+         $("#faculty-opt").addClass('click-tag');
+         $("#room-opt,#ge-opt,#sec-opt,#vac-opt,#course-opt").removeClass('click-tag');
+         });
+         $("#room-opt").on("click", function () {
+         $("#geGroup, #courseGroup, #facultyGroup,#secGroup,#vacGroup").hide();
+         $("#roomGroup").show();
+         $("#room-opt").addClass('click-tag');
+         $("#ge-opt,#course-opt,#sec-opt,#vac-opt,#faculty-opt").removeClass('click-tag');
+         });
+         $("#ge-opt").on("click", function () {
+         $("#geGroup").show();
+         $("#roomGroup, #courseGroup, #facultyGroup,#secGroup,#vacGroup").hide();
+         $("#ge-opt").addClass('click-tag');
+         $("#sec-opt,#vac-opt,#course-opt,#room-opt,#faculty-opt").removeClass('click-tag');
+         });
+         $("#sec-opt").on("click", function () {
+         $("#secGroup").show();
+         $("#roomGroup, #courseGroup, #facultyGroup,#geGroup,#vacGroup").hide();
+         $("#sec-opt").addClass('click-tag');
+         $("#ge-opt,#vac-opt,#course-opt,#room-opt,#faculty-opt").removeClass('click-tag');
+         });
+         $("#vac-opt").on("click", function () {
+         $("#vacGroup").show();
+         $("#roomGroup, #courseGroup, #facultyGroup,#geGroup,#secGroup").hide();
+         $("#vac-opt").addClass('click-tag');
+         $("#ge-opt,#sec-opt,#course-opt,#room-opt,#faculty-opt").removeClass('click-tag');
+         });
+         
+         let faculty, room, course, semester, section, sectionge, sectionsec, sectionvac, semesterge, semestersec, semestervac, paperge, papersec, papervac;
+         
+         function showAlert(message) {
+         $("#alertMessage").text(message);
+         $("#alert").show();
+         }
+         
+         function hideAlert() {
+         $("#alert").attr('style', 'display:none !important');
+         }
+         
+         $("#submit-tt-btn").on("click", function (e) {
+         e.preventDefault();
+         
+         semester = $("#semester").val();
+         semesterge = $("#semesterge").val();
+         semestersec = $("#semestersec").val();
+         semestervac = $("#semestervac").val();
+         paperge = $("#paperge").val();
+         papersec = $("#papersec").val();
+         papervac = $("#papervac").val();
+         course = $("#course").val();
+         faculty = $("#faculty").val();
+         room = $("#room").val();
+         section = $("#section").val();
+         sectionge = $("#sectionge").val();
+         sectionsec = $("#sectionsec").val();
+         sectionvac = $("#sectionvac").val();
+         
+         let errorMessage = "";
+         
+         if ($("#facultyGroup").is(":visible") && faculty === null) {
+         errorMessage = "Please select a faculty.";
+         } else if ($("#roomGroup").is(":visible") && room === null) {
+         errorMessage = "Please select a room.";
+         } else if ($("#courseGroup").is(":visible") && (course === null || semester === null || section === null)) {
+         errorMessage = "Please select semester, course, and section.";
+         } else if ($("#geGroup").is(":visible") && (paperge === null || semesterge === null || sectionge === null)) {
+         errorMessage = "Please select semester, section and paper for GE.";
+         } else if ($("#secGroup").is(":visible") && (papersec === null || semestersec === null || sectionsec === null)) {
+         errorMessage = "Please select semester, section and paper for SEC.";
+         } else if ($("#vacGroup").is(":visible") && (papervac === null || semestervac === null || sectionvac === null)) {
+         errorMessage = "Please select semester, section and paper for VAC.";
+         }
+         
+         if (errorMessage !== "") {
+         showAlert(errorMessage);
+         setTimeout(hideAlert, 5000);
+         } else {
+         redirectBasedOnSelection();
+         }
+         });
+         
+         function redirectBasedOnSelection() {
+         if ($("#facultyGroup").is(":visible") && faculty !== null) {
+         window.location.href = "/timetable/faculty/" + faculty + "/";
+         } else if ($("#roomGroup").is(":visible") && room !== null) {
+         window.location.href = "/timetable/room/" + room + "/";
+         } else if ($("#courseGroup").is(":visible") && course !== null && semester !== null && section !== null) {
+         window.location.href = "/timetable/course/" + semester + "/" + course + "/" + section + "/";
+         } else if ($("#geGroup").is(":visible") && paperge !== null && semesterge !== null) {
+         window.location.href = "/timetable/gvs/" + paperge + "/" + sectionge + "/" + semesterge + "/";
+         } else if ($("#secGroup").is(":visible") && papersec !== null && semestersec !== null) {
+         window.location.href = "/timetable/gvs/" + papersec + "/" + sectionsec + "/" + semestersec + "/";
+         } else if ($("#vacGroup").is(":visible") && papervac !== null && semestervac !== null) {
+         window.location.href = "/timetable/gvs/" + papervac + "/" + sectionvac + "/" + semestervac + "/";
+         }
+         }
+         
+         const currentPath = window.location.pathname;
+         if (currentPath == "/timetable/") {
+         $("#tt-container").hide();
+         }
+         if (currentPath.startsWith("/timetable/") && currentPath !== "/timetable/") {
+         $("#reselect-tt-btn").show();
+         $("#selectOption").attr('style', 'display:none !important');
+         $("#submit-tt-btn").hide();
+         }
+         if ($("#reselect-tt-btn")) {
+         $("#reselect-tt-btn").on("click", function () {
+         window.location.href = "/timetable/";
+         })
+         }
+         
+         const cap = $("caption");
+         const selected_val = $("#selectedvalue");
+         const pathSegments = currentPath.split('/');
+         const retrived_tt_val = pathSegments[pathSegments.length - 3];
+         var spanElement = $("<span>").addClass("padding-15px-lr padding-5px-tb border flex-grow-1")
+         .css("font-weight", "600");
+         if (cap.length > 0) {
+         if (pathSegments[pathSegments.length - 4] == "faculty") {
+         cap.text("Faculty Name: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         spanElement.text("Faculty Name: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         selected_val.append(spanElement);
+         } else if (pathSegments[pathSegments.length - 3] == "room") {
+         cap.text("Room Number: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         spanElement.text("Room Number: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         selected_val.append(spanElement);
+         } else if (pathSegments[pathSegments.length - 5] == "course") {
+         cap.text("Course: " + decodeURIComponent(retrived_tt_val) + " || " + "Semester: " + decodeURIComponent(pathSegments[pathSegments.length - 4]) + " || " + "Section: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         spanElement.text("Course: " + decodeURIComponent(retrived_tt_val) + " || " + "Semester: " + decodeURIComponent(pathSegments[pathSegments.length - 4]) + " || " + "Section: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         selected_val.append(spanElement);
+         } else if (pathSegments[pathSegments.length - 5] == "gvs") {
+         cap.text("Section: " + decodeURIComponent(retrived_tt_val) + " || " + "Paper: " + decodeURIComponent(pathSegments[pathSegments.length - 4]) + " || " + "Semester: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         spanElement.text("Section: " + decodeURIComponent(retrived_tt_val) + " || " + "Paper: " + decodeURIComponent(pathSegments[pathSegments.length - 4]) + " || " + "Semester: " + decodeURIComponent(pathSegments[pathSegments.length - 2]));
+         selected_val.append(spanElement);
+         }
+         }
+         const printBtn = document.getElementById('download-tt-btn');
+         if (printBtn) {
+         printBtn.addEventListener('click', function toPDF() {
+         const element = document.getElementById('timetable-table');
+         
+         html2canvas(element).then(canvas => {
+         const imageData = canvas.toDataURL('image/png');
+         const img = new Image();
+         img.src = imageData;
+         const downloadLink = document.createElement('a');
+         downloadLink.href = imageData;
+         downloadLink.download = 'timetable.png';
+         document.body.appendChild(downloadLink);
+         downloadLink.click();
+         document.body.removeChild(downloadLink);
+         });
+         })
+         }
+         
+         
+         $("#selectOption span").click(function () {
+         var selectedOption = $(this).attr('id');
+         $.ajax({
+         url: '/timetable/',
+         data: { 'option': selectedOption },
+         dataType: 'html',
+         success: function (data) {
+         var groupMap = {
+         'faculty-opt': '#facultyGroup',
+         'sec-opt': '#secGroup',
+         'ge-opt': '#geGroup',
+         'room-opt': '#roomGroup',
+         'vac-opt': '#vacGroup',
+         };
+         var groupID = groupMap[selectedOption];
+         $(groupID).html(data);
+         }
+         });
+         });
+         
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+   </body>
+</html>
