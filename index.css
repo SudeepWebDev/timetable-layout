@@ -1,214 +1,275 @@
- * {
- user-select: none;
- }
- .custom-logo {
- background: linear-gradient(to bottom right, rgb(10, 20, 110), #0071EB);
- background-clip: text;
- -webkit-background-clip: text;
- color: transparent;
- font-size: 24px;
- font-weight: bold;
- cursor: pointer;
- margin-left: 10px;
- }
- .hover-underline {
- position: relative;
- text-decoration: none;
- color: #0071EB;
- /* Default text color */
- transition: color 0.3s, background-image 0.3s;
- /* Add a smooth transition effect */
- }
- .hover-underline::before {
- content: '';
- position: absolute;
- bottom: 0;
- left: 0;
- width: 100%;
- height: 3px;
- background-image: linear-gradient(to right, #0071EB, #0071EB);
- transform: scaleX(0);
- transform-origin: bottom right;
- transition: transform 0.3s;
- }
- /* .hover-underline:hover {
- color: #fff; 
- background-image: none;
- } */
- .hover-underline:hover::before {
- transform: scaleX(1);
- transform-origin: bottom left;
- }
- .bg-light-gray {
- background-color: #f7f7f7;
- }
- .table-bordered thead td,
- .table-bordered thead th {
- border-bottom-width: 2px;
- }
- .table thead th {
- vertical-align: bottom;
- border-bottom: 2px solid #000000;
- }
- .table-bordered td,
- .table-bordered th {
- border: 1px solid #000000;
- }
- .bg-sky.box-shadow {
- box-shadow: 0px 5px 0px 0px #00a2a7
- }
- .bg-orange.box-shadow {
- box-shadow: 0px 5px 0px 0px #af4305
- }
- .bg-green.box-shadow {
- box-shadow: 0px 5px 0px 0px #4ca520
- }
- .bg-yellow.box-shadow {
- box-shadow: 0px 5px 0px 0px #dcbf02
- }
- .bg-pink.box-shadow {
- box-shadow: 0px 5px 0px 0px #e82d8b
- }
- .bg-purple.box-shadow {
- box-shadow: 0px 5px 0px 0px #8343e8
- }
- .bg-lightred.box-shadow {
- box-shadow: 0px 5px 0px 0px #d84213
- }
- .bg-sky {
- background-color: #02c2c7
- }
- .bg-orange {
- background-color: #e95601
- }
- .bg-green {
- background-color: #5bbd2a
- }
- .bg-yellow {
- background-color: #f0d001
- }
- .bg-pink {
- background-color: #ff48a4
- }
- .bg-purple {
- background-color: #9d60ff
- }
- .bg-lightred {
- background-color: #ff5722
- }
- .padding-15px-lr {
- padding-left: 15px;
- padding-right: 15px;
- }
- .padding-5px-tb {
- padding-top: 5px;
- padding-bottom: 5px;
- }
- .margin-10px-bottom {
- margin-bottom: 10px;
- }
- .border-radius-5 {
- border-radius: 5px;
- }
- .margin-10px-top {
- margin-top: 10px;
- }
- .font-size14 {
- font-size: 14px;
- }
- .text-light-gray {
- color: #d6d5d5;
- }
- .font-size13 {
- font-size: 13px;
- }
- .table-bordered td,
- .table-bordered th {
- border: 1px solid #000000;
- }
- .table td,
- .table th {
- padding: .75rem;
- vertical-align: middle;
- border-top: 1px solid #000000;
- white-space: nowrap;    
- }
- table tbody td:first-child, table thead th:first-child {
- position: sticky;
- left: 0;
- background-color: #fff; 
- z-index: 2;
- }
- .large-screen-element {
- display: block;
- }
- @media screen and (max-width: 600px) {
- .large-screen-element {
- display: none; 
- }
- }
- :root {
- --p-bg-color-1: rgb(10, 20, 110);
- --p-bg-color-2: #0071EB;
- --white: white;
- --blue: blue;
- --black: black;
- --cornflowerblue: cornflowerblue;
- --warm-yellow: rgb(249, 202, 36);
- --vibrant-orange: rgb(240, 147, 43);
- }
- thead,
- .align-middle {
- background: var(--white) !important;
- z-index: 3;
- }
- caption {
- caption-side: top;
- }
- .nav-bottom-header {
- display: flex;
- flex-direction: column;
- margin: 40px;
- text-align: center;
- border-radius: 10px;
- background: linear-gradient(to bottom right, var(--p-bg-color-1), var(--p-bg-color-2));
- color: var(--white);
- }
- .study-text,
- .search-appearance,
- .tag-icons {
- margin-bottom: 20px;
- }
- .nav-bottom-header div.study-text {
- margin: 30px;
- }
- .hover-tag:hover {
- background-color: rgb(245, 245, 245);
- color: rgb(10, 20, 110);
- }
- .click-tag {
- background-color: white;
- color: rgb(10, 20, 110);
- }
- .cursor-pointer {
- cursor: pointer;
- }
- @media (max-width: 768px) {
- .custom-logo {
- margin-left: 10px;
- }
- .nav-bottom-header {
- margin: 40px 10px;
- }
- h1 {
- font-size: 20px;
- }
- h2 {
- font-size: 18px;
- }
- #selectOption {
- overflow-x: auto;
- white-space: nowrap;
- justify-content: flex-start !important;
- }
- }
+/* Disable text selection for all elements */
+* {
+  user-select: none;
+}
+
+/* Styling for a custom logo */
+.custom-logo {
+  background: linear-gradient(to bottom right, rgb(10, 20, 110), #0071EB);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Add underline effect on hover for links */
+.hover-underline {
+  position: relative;
+  text-decoration: none;
+  color: #0071EB; /* Default text color */
+  transition: color 0.3s, background-image 0.3s; /* Add a smooth transition effect */
+}
+
+.hover-underline::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(to right, #0071EB, #0071EB);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+
+/* Background color and underline effect on hover */
+.hover-underline:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Styling for a light gray background */
+.bg-light-gray {
+  background-color: #f7f7f7;
+}
+
+/* Table header styling */
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 2px;
+}
+
+/* Table header border styling */
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #000000;
+}
+
+/* Table cell border styling */
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #000000;
+}
+
+/* Styling with a box shadow for various background colors */
+.bg-sky.box-shadow {
+  box-shadow: 0px 5px 0px 0px #00a2a7;
+}
+
+.bg-orange.box-shadow {
+  box-shadow: 0px 5px 0px 0px #af4305;
+}
+
+.bg-green.box-shadow {
+  box-shadow: 0px 5px 0px 0px #4ca520;
+}
+
+.bg-yellow.box-shadow {
+  box-shadow: 0px 5px 0px 0px #dcbf02;
+}
+
+.bg-pink.box-shadow {
+  box-shadow: 0px 5px 0px 0px #e82d8b;
+}
+
+.bg-purple.box-shadow {
+  box-shadow: 0px 5px 0px 0px #8343e8;
+}
+
+.bg-lightred.box-shadow {
+  box-shadow: 0px 5px 0px 0px #d84213;
+}
+
+/* Background color styling for various elements */
+.bg-sky {
+  background-color: #02c2c7;
+}
+
+.bg-orange {
+  background-color: #e95601;
+}
+
+.bg-green {
+  background-color: #5bbd2a;
+}
+
+.bg-yellow {
+  background-color: #f0d001;
+}
+
+.bg-pink {
+  background-color: #ff48a4;
+}
+
+.bg-purple {
+  background-color: #9d60ff;
+}
+
+.bg-lightred {
+  background-color: #ff5722;
+}
+
+/* Padding and margin classes */
+.padding-15px-lr {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.padding-5px-tb {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.margin-10px-bottom {
+  margin-bottom: 10px;
+}
+
+.border-radius-5 {
+  border-radius: 5px;
+}
+
+.margin-10px-top {
+  margin-top: 10px;
+}
+
+/* Font size classes */
+.font-size14 {
+  font-size: 14px;
+}
+
+.font-size13 {
+  font-size: 13px;
+}
+
+/* Table cell border styling */
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #000000;
+}
+
+/* Table cell padding, alignment, and white-space styling */
+.table td,
+.table th {
+  padding: .75rem;
+  vertical-align: middle;
+  border-top: 1px solid #000000;
+  white-space: nowrap;
+}
+
+/* Sticky table headers for first columns */
+table tbody td:first-child,
+table thead th:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+
+/* Display property based on screen size */
+.large-screen-element {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .large-screen-element {
+    display: none;
+  }
+}
+
+/* Custom CSS variables (variables are defined here) */
+:root {
+  --p-bg-color-1: rgb(10, 20, 110);
+  --p-bg-color-2: #0071EB;
+  --white: white;
+  --blue: blue;
+  --black: black;
+  --cornflowerblue: cornflowerblue;
+  --warm-yellow: rgb(249, 202, 36);
+  --vibrant-orange: rgb(240, 147, 43);
+}
+
+/* Styling for table headers and alignment */
+thead,
+.align-middle {
+  background: var(--white) !important;
+  z-index: 3;
+}
+
+/* Caption styling */
+caption {
+  caption-side: top;
+}
+
+/* Styling for a navigation header at the bottom of the page */
+.nav-bottom-header {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, var(--p-bg-color-1), var(--p-bg-color-2));
+  color: var(--white);
+}
+
+/* Styling for text and icons in the navigation header */
+.study-text,
+.search-appearance,
+.tag-icons {
+  margin-bottom: 20px;
+}
+
+/* Additional styling for specific elements in the navigation header */
+.nav-bottom-header div.study-text {
+  margin: 30px;
+}
+
+/* Hover and click effects for tags */
+.hover-tag:hover {
+  background-color: rgb(245, 245, 245);
+  color: rgb(10, 20, 110);
+}
+
+.click-tag {
+  background-color: white;
+  color: rgb(10, 20, 110);
+}
+
+/* Cursor pointer style */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .custom-logo {
+    margin-left: 10px;
+  }
+  .nav-bottom-header {
+    margin: 40px 10px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  #selectOption {
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start !important;
+  }
+}
